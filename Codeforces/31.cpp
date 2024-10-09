@@ -9,17 +9,11 @@ int main()
     cin.tie(nullptr), cout.tie(nullptr);
  
     int n;cin >> n;
-    vector<string> v(n);
-    int count =1;
-        for(int i=0;i<n;i++){
-            cin >> v[i];
-        }
-    for(int i=1;i<n;i++){
-        if(v[i-1] != v[i]){
-            count++;
-        }
+    int count =0;
+    while (n--) {
+        int p,q;cin >> p >> q;
+        if(q-p >= 2) count++;
     }
     cout << count << endl;
- 
     return 0;
 }

@@ -8,10 +8,16 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
  
-    int t;cin>>t;
-    while(t--){
-        int a,b;cin>>a>>b;
-        cout<<(b-a%b)%b<<endl;
+    int n ;cin>>n;
+    int arr [n];
+    for(int & i : arr){
+        cin>>i;
     }
+    sort(arr,arr+n);
+ 
+    for(int & i : arr){
+        cout<<i<<' ';
+    }
+ 
     return 0;
 }

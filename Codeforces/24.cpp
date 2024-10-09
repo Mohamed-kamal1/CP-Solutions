@@ -8,17 +8,13 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
  
-    int n ;cin>>n;
-    string ans;
-    bool h = true;
-    while(n--){
-        ans += "I ";
-        if(h)ans+="hate ";
-        else ans+="love ";
-        h = !h;
-        if(n!=0)ans+="that ";
-        else ans+="it";
+    string s;cin>>s;
+    for(char i : s){
+        if(i=='H' || i == 'Q' || i == '9'){
+            cout<<"YES";
+            return 0;
+        }
     }
-    cout<<ans;
+    cout<<"NO";
     return 0;
 }

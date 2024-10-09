@@ -1,31 +1,76 @@
-#include <iostream>
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-long long luckyNum[100001] = {0}, len = 1;
-long long calc(long long pos)
+#define ll long long
+   const int inf=0x3f3f3f3f;
+ 
+const int N=1e5+100;
+ 
+int cnt[30];
+ 
+void solve(int num)
 {
- long long sum = 0;
- for(int i = 1;;i++)
- {
-  if(luckyNum[i] >= pos) 
-  {
-      sum += luckyNum[i] * (pos - luckyNum[i - 1]);
-      break;
-  }
-  sum += luckyNum[i] * (luckyNum[i] - luckyNum[i - 1]);
- }
- return sum;
+ for(int i=0;i<30;i++)
+  cnt[i]+=((num>>i)&1);
 }
 int main()
 {
- luckyNum[1] = 4, luckyNum[2] = 7;
- for (int i = 1, len = 2; luckyNum[i] * 10 + 4 <= (long long)(1e10); i++)
+    ios_base::sync_with_stdio(0);
+    cin.tie(0), cout.tie(0);
+ 
+ 
+ 
+    int t=1;
+    while(t--){
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ int n;
+ cin>>n;
+ for(int i=1;i<=n;i++)
  {
-  luckyNum[++len] = luckyNum[i] * 10 + 4;
-  luckyNum[++len] = luckyNum[i] * 10 + 7;
+  int num;
+  cin>>num;
+  solve(num);
  }
- long long l, r;
- cin >> l >> r;
- cout << calc(r) - calc(l - 1);
- return 0;
+ ll ans=0;
+ for(int i=1;i<=n;i++)
+ {
+  ll num=0;
+  for(int j=0;j<30;j++)
+  {
+   if(cnt[j])
+   {
+    cnt[j]--;
+    num|=(1<<j);
+   }
+  }
+  ans+=num*num;
+ }
+ cout<<ans;
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+}
+ 
+ 
+    return 0;
 }

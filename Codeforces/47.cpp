@@ -1,21 +1,72 @@
 #include <bits/stdc++.h>
- 
- 
 using namespace std;
-#define ll long long
+typedef long long intl;
+typedef vector<intl> vi;
  
-int main() {
+#define pb push_back
+#define mp make_pair
+#define rep(i, a, n) for (intl i = a; i < n; i++)
  
-    ios_base::sync_with_stdio(0);
-    cin.tie(0), cout.tie(0);
  
-    int x; cin >> x;
-    int steps = 0;
-    for (int i = 5; i > 0;i--){
-        steps += x / i;
-        x %= i;
-        if (x == 0) break;
+bool isPrime(intl n)
+{
+    if (n <= 1)
+        return false;
+    if (n <= 3)
+        return true;
+ 
+    if (n % 2 == 0 || n % 3 == 0)
+        return false;
+ 
+    for (intl i = 5; i * i <= n; i = i + 6)
+        if (n % i == 0 || n % (i + 2) == 0)
+            return false;
+ 
+    return true;
+}
+ 
+ 
+ 
+intl t, n;
+ 
+void solve(){
+    cin>>n;string s;cin>>s;
+    intl cnt=count(s.begin(),s.end(),'*');
+    vi v;
+    intl cntprev=0,comp=-1;
+    rep(i,0,n){
+         if(s[i]=='*'){
+             if(cntprev==(cnt/2)){
+                 comp=i;
+             }
+             cntprev++;
+             v.push_back(i);
+         }
     }
-    cout<<steps<<endl;
-        return 0;
+    intl ans=0;
+    intl xx1=1;
+    rep(i,0,v.size()){
+        if(v[i]<comp){
+            ans+=comp-v[i]-xx1;
+            xx1+=1;
+        }
+        else if(v[i]==comp){
+             xx1=1;
+        }
+        else{
+            ans+=v[i]-comp-xx1;
+            xx1+=1;
+        }
+    }
+    cout<<ans<<"\n";
+ 
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);    cin >> t;
+    rep(ii, 0, t)
+    {
+        solve();
+    }
 }

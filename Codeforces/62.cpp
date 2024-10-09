@@ -1,38 +1,54 @@
-/// Codeforces- Div1 484A - Bits.
-/// Category: greedy + bit manipulation .
- 
- 
-#include<bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <math.h>
+#include <stdio.h>
  
 using namespace std;
  
+int fact (int n){
+  if(n==0 || n==1)
+   return 1;
  
-typedef unsigned long long ll;
+  else
+   return n*fact(n-1);
+}
+ 
+int main(){
+ 
+ int i,c=0,d=0,e=0,ans=0;
+ string s1,s2;
+ 
+ cin>>s1>>s2;
+ 
+ for(i=0;s1[i]!='\0';i++)
+   s1[i] == '+' ? c++ : c--;
+ 
+ for(i=0;s2[i]!='\0';i++){
+    if(s2[i]=='+')
+      d++;
+    else if(s2[i]=='-')
+      d--;
+    else 
+      e++;
+ }
  
  
-int main()
+ if(!e){
+      d == c ? cout<<"1.000000000000" : cout<<"0.000000000000";
+  }
  
-{
-    int n;
- 
-    ll l,r;
- 
-    cin>>n;
- 
-    while(n--)
-    {
-        cin>>l>>r;
-        ll ans=l;
-        for(ll i=0;i<=64;i++)
-        {
-            if(((1ll<<i)&l )==0)
-            {
-                if((ans|(1ll<<i))>r) break;
-                ans|=(1ll<<i);
-            }
-        }
-        cout<<ans<<"\n";
-    }
- 
-    return 0;
+  else {
+   
+    i = e+(c-d);
+     
+     if(i%2 == 0 && i/2>=0 && i/2<=e){
+       ans=fact(e)/(fact(e-i/2)*fact(i/2));
+       printf("%0.12f",double(ans)/double(pow(2,e)));
+     }
+     
+     else
+       cout<<"0.000000000000";
+   }
+  
+  return 0;
 }

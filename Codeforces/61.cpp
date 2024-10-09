@@ -1,17 +1,31 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+ 
 using namespace std;
-#define ll long long
  
-int main()
-{
-    ios_base::sync_with_stdio(0);
-    cin.tie(0), cout.tie(0);
+vector<long long> lucky;
  
-    int t=1;
-    while(t--){
-            ll n;cin>>n;
-            cout<<25;
-    }
+void trY(long long number, int fours, int sevens) {
+  if(number > 1e10) return;
+  
+  if(fours == sevens)
+    lucky.push_back(number);
+  
+  trY(number * 10 + 7, fours, sevens + 1);
+  trY(number * 10 + 4, fours + 1, sevens);
+}
  
-    return 0;
+int main() {
+  trY(4, 1, 0);
+  trY(7, 0, 1);
+  
+  long long n;
+  cin >> n;
+  
+  sort(lucky.begin(), lucky.end());
+  cout << lucky[lower_bound(lucky.begin(), lucky.end(), n) - lucky.begin()] << endl;
+  
+  return 0;
 }

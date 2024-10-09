@@ -1,16 +1,20 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
  
-using namespace std;
-#define ll long long
+int main() {
+    int n;
+    std::cin >> n;
+    std::vector<int> gifts(n);
+    std::vector<int> givers(n);
  
-int main()
-{
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr), cout.tie(nullptr);
+    for (int i = 0; i < n; ++i) {
+        std::cin >> gifts[i];
+        givers[gifts[i] - 1] = i + 1;
+    }
  
-    ll n,k;cin >>n>>k;
-    if(k > (n + 1) / 2)cout<<2 * (k - (n + 1) / 2);
-    else cout<<2*k-1;
+    for (int i = 0; i < n; ++i) {
+        std::cout << givers[i] << " ";
+    }
  
     return 0;
 }

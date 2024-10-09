@@ -11,20 +11,21 @@ int main() {
  
     string s;cin>>s;
     int n=s.size();
-    int count=1;
- 
-    for (int i = 1;i<n;i++){
-        if(s[i]==s[i-1]){
-            count++;
-        }
-        else{
-            count=1;
-        }
-        if(count==7){
-            cout<<"YES";
-            return 0;
+    int L = 0, U = 0;
+    for (int i = 0;i<n;i++) {
+        if (islower(s[i])) L++;
+        else U++;
+    }
+    if(U>L) {
+        for (int i = 0;i<n;i++) {
+            s[i] = toupper(s[i]);
+        }   
+    }
+    else {
+        for (int i = 0;i<n;i++) {
+            s[i] = tolower(s[i]);
         }
     }
-    cout<<"NO";
-        return 0;
+    cout << s;
+    return 0;
 }

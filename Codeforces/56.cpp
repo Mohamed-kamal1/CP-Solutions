@@ -1,32 +1,31 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
-#define ll long long
-#include <cstdio>
- 
+long long luckyNum[100001] = {0}, len = 1;
+long long calc(long long pos)
+{
+ long long sum = 0;
+ for(int i = 1;;i++)
+ {
+  if(luckyNum[i] >= pos) 
+  {
+      sum += luckyNum[i] * (pos - luckyNum[i - 1]);
+      break;
+  }
+  sum += luckyNum[i] * (luckyNum[i] - luckyNum[i - 1]);
+ }
+ return sum;
+}
 int main()
 {
-    int n, amount(0);
-    cin>>n;
- 
-    bool b[3001] = {false};
-    int pfactors[3001] = {0};
-    for (int i = 2; i <= n; ++i)
-    {
-        if (!b[i])
-        {
-            for (int j = i + i; j <= n; j += i)
-            {
-                b[j] = true;
-                pfactors[j] += 1;
-            }
-        }
- 
-        if (pfactors[i] == 2)
-        {
-            amount += 1;
-        }
-    }
-   cout<<amount;
-    return 0;
+ luckyNum[1] = 4, luckyNum[2] = 7;
+ for (int i = 1, len = 2; luckyNum[i] * 10 + 4 <= (long long)(1e10); i++)
+ {
+  luckyNum[++len] = luckyNum[i] * 10 + 4;
+  luckyNum[++len] = luckyNum[i] * 10 + 7;
+ }
+ long long l, r;
+ cin >> l >> r;
+ cout << calc(r) - calc(l - 1);
+ return 0;
 }
- 

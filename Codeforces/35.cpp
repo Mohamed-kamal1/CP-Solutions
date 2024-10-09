@@ -5,19 +5,22 @@ using namespace std;
  
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr), cout.tie(nullptr);
  
-    int n;cin >> n;
-    int luckyNumbers[] = {4, 7, 44, 47, 74, 77, 444, 447, 474, 477, 744, 747, 774, 777};
+    ios_base::sync_with_stdio(0);
+    cin.tie(0), cout.tie(0);
  
-    for (int luckyNumber : luckyNumbers) {
-        if (n % luckyNumber == 0) {
-            cout << "YES" ;
-            return 0;
-        }
+    int y;cin>>y;
+    int x ;
+    while (true){
+        x = ++y;
+        int a ,b,c,d;
+        a = x%10;x/=10;
+        b = x%10;x/=10;
+        c = x%10;x/=10;
+        d = x%10;x/=10;
+        if(a!=b && a!=c && a!=d && b!=c && b!=d && c!=d) break;
     }
-    cout << "NO" ;
+    cout<<y<<endl;
  
     return 0;
 }

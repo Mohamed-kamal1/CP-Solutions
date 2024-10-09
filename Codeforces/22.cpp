@@ -9,21 +9,16 @@ int main()
     cin.tie(nullptr), cout.tie(nullptr);
  
     int n ;cin>>n;
-    set<int> s{};
-    int p;cin>>p;
-    while(p--) {
-        int a;cin>>a;
-        s.insert(a);
+    string ans;
+    bool h = true;
+    while(n--){
+        ans += "I ";
+        if(h)ans+="hate ";
+        else ans+="love ";
+        h = !h;
+        if(n!=0)ans+="that ";
+        else ans+="it";
     }
-    cin>>p;
-    while(p--) {
-        int a;cin>>a;
-        s.insert(a);
-    }
-    if(s.size()==n)
-        cout<< "I become the guy.";
-    else
-        cout<<"Oh, my keyboard!";
- 
+    cout<<ans;
     return 0;
 }

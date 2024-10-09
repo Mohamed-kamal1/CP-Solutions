@@ -1,33 +1,30 @@
 #include <bits/stdc++.h>
  
+ 
 using namespace std;
 #define ll long long
  
-int main()
-{
+int main() {
  
     ios_base::sync_with_stdio(0);
     cin.tie(0), cout.tie(0);
  
-    int n;cin >> n;
-    string s; cin >> s;
+    string s;cin>>s;
+    int n=s.size();
+    int count=1;
  
-    int a = 0, d = 0;
- 
-    while (n--)
-    {
-        if (s[n] == 'A')
-            a++;
-        else
-            d++;
+    for (int i = 1;i<n;i++){
+        if(s[i]==s[i-1]){
+            count++;
+        }
+        else{
+            count=1;
+        }
+        if(count==7){
+            cout<<"YES";
+            return 0;
+        }
     }
- 
-    if (a > d)
-        cout << "Anton";
-    else if (d > a)
-        cout << "Danik";
-    else
-        cout << "Friendship";
- 
-    return 0;
+    cout<<"NO";
+        return 0;
 }

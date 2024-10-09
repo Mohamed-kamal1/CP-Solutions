@@ -1,22 +1,27 @@
 #include <bits/stdc++.h>
- 
 using namespace std;
+#define ll long long
  
-const int N = 500005;
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0), cout.tie(0);
  
-int n, a[N];
+    string s;cin>>s;
+    int n =s.length();
  
-int main() {
-    cin >> n;
-    for (int i = 0; i < n; ++i)
-        cin >> a[i];
-    sort(a, a + n);
-    int ans = n;
-    for (int i = 0, j = n / 2; i < n / 2; ++i) {
-        for (; j < n and 2 * a[i] > a[j]; ++j);
-        if (j == n) break;
-        --ans; ++j;
+    for(int i=0;i<n;i++){
+            if(s.at(i)=='0'){
+                s.replace(i,1,"");
+                break;
+            }
     }
-    cout << ans << '\n';
+    if(n==s.length()){
+        s.replace(n-1,1,"");
+    }
+    cout<<s;
+ 
+ 
+ 
     return 0;
 }

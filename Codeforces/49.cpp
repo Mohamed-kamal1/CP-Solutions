@@ -1,72 +1,69 @@
 #include <bits/stdc++.h>
+ 
 using namespace std;
-typedef long long intl;
-typedef vector<intl> vi;
  
-#define pb push_back
-#define mp make_pair
-#define rep(i, a, n) for (intl i = a; i < n; i++)
+#define int long long
+#define endl '\n'
+#define maxn 100010
+const int MOD = 1000000007;
  
- 
-bool isPrime(intl n)
-{
-    if (n <= 1)
-        return false;
-    if (n <= 3)
-        return true;
- 
-    if (n % 2 == 0 || n % 3 == 0)
-        return false;
- 
-    for (intl i = 5; i * i <= n; i = i + 6)
-        if (n % i == 0 || n % (i + 2) == 0)
-            return false;
- 
-    return true;
+int pw(int a, int b, int m = MOD) {
+    if (b == 0)return 1;
+    if (b & 1)return a * pw(a, b - 1) % m;
+    return pw(a * a % m, b / 2);
 }
  
- 
- 
-intl t, n;
- 
-void solve(){
-    cin>>n;string s;cin>>s;
-    intl cnt=count(s.begin(),s.end(),'*');
-    vi v;
-    intl cntprev=0,comp=-1;
-    rep(i,0,n){
-         if(s[i]=='*'){
-             if(cntprev==(cnt/2)){
-                 comp=i;
-             }
-             cntprev++;
-             v.push_back(i);
-         }
-    }
-    intl ans=0;
-    intl xx1=1;
-    rep(i,0,v.size()){
-        if(v[i]<comp){
-            ans+=comp-v[i]-xx1;
-            xx1+=1;
-        }
-        else if(v[i]==comp){
-             xx1=1;
-        }
-        else{
-            ans+=v[i]-comp-xx1;
-            xx1+=1;
-        }
-    }
-    cout<<ans<<"\n";
- 
+int inverse(int a) {
+    return pw(a, MOD - 2);
 }
-int main()
-{
+ 
+int fact[maxn], inv[maxn];
+ 
+void preprocess(int lmt) {
+    fact[0] = 1;
+    for (int i = 1; i <= lmt; i++)fact[i] = (fact[i - 1] * i) % MOD;
+    inv[lmt] = inverse(fact[lmt]);
+    for (int i = lmt - 1; i >= 0; i--)inv[i] = (i + 1) * inv[i + 1] % MOD;
+}
+ 
+int C(int n, int r) {
+    if (r > n)return 0;
+    return fact[n] * inverse(fact[r] * fact[n - r] % MOD) % MOD;
+}
+ 
+void solve() {
+    int n, x, pos;
+    cin >> n >> x >> pos;
+ 
+    int ct1 = 0, ct2 = 0;
+    int lo = 0, hi = n, mid, fd = 0;
+    while (lo < hi) {
+        mid = (lo + hi) / 2;
+        if (mid < pos) {
+            ct1++;
+            lo = mid + 1;
+        } else if (mid > pos) {
+            ct2++;
+            hi = mid;
+        } else if (mid == pos)fd = 1, lo = mid + 1;
+    }
+    int ans = C(x - 1, ct1) * C(n - x, ct2) % MOD;
+    ans *= fact[n - ct1 - ct2 - 1] * fact[ct1] % MOD;
+    ans %= MOD;
+    ans *= fact[ct2] % MOD;
+    ans %= MOD;
+    cout << ans << endl;
+}
+ 
+int32_t main() {
     ios_base::sync_with_stdio(false);
-    cin.tie(NULL);    cin >> t;
-    rep(ii, 0, t)
-    {
+    cin.tie(nullptr);
+ 
+    preprocess(2010);
+    int t = 1;
+//    cin >> t;
+ 
+    while (t--)
         solve();
-    }
+    return 0;
 }

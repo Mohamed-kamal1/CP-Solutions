@@ -1,54 +1,32 @@
 #include <bits/stdc++.h>
 using namespace std;
+#define ll long long
+#include <cstdio>
  
-vector<int> sieve(int n) {
-  vector<int> p(n + 1, 1);
-  p[0] = p[1] = 0;
-  for (int i = 2; i * i < p.size(); i++) {
-    if (p[i] == 0) {
-      continue;
-    }
-    for (int j = 0; i * i + i * j < p.size(); j++) {
-      p[i * i + i * j] = 0;
-    }
-  }
-  return p;
-}
+int main()
+{
+    int n, amount(0);
+    cin>>n;
  
-int main() {
-  ios::sync_with_stdio(false);
-  cin.tie(nullptr);
-  int t;
-  cin >> t;
-  while (t--) {
-    long long n;
-    cin >> n;
-    vector<int> ps = sieve(sqrt(n) + 1);
-    vector<long long> ans = {n};
-    for (int i = 0; i < ps.size(); i++) {
-      if (ps[i] == 0) {
-        continue;
-      }
-      vector<long long> tmp;
-      long long nc = n;
-      while (nc % i == 0) {
-        long long nxt = nc / i;
-        if (nxt % i > 0) {
-          break;
+    bool b[3001] = {false};
+    int pfactors[3001] = {0};
+    for (int i = 2; i <= n; ++i)
+    {
+        if (!b[i])
+        {
+            for (int j = i + i; j <= n; j += i)
+            {
+                b[j] = true;
+                pfactors[j] += 1;
+            }
         }
-        tmp.push_back(i);
-        nc = nxt;
-      }
-      tmp.push_back(nc);
-      if (tmp.size() > ans.size()) {
-        ans = tmp;
-      }
+ 
+        if (pfactors[i] == 2)
+        {
+            amount += 1;
+        }
     }
-    cout << ans.size() << endl;
-    for (auto val: ans) {
-      cout << val << " ";
-    }
-    cout << endl;
-  }
-  return 0;
+   cout<<amount;
+    return 0;
 }
+ 

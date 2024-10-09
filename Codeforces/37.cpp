@@ -9,18 +9,14 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0), cout.tie(0);
  
-    int y;cin>>y;
-    int x ;
-    while (true){
-        x = ++y;
-        int a ,b,c,d;
-        a = x%10;x/=10;
-        b = x%10;x/=10;
-        c = x%10;x/=10;
-        d = x%10;x/=10;
-        if(a!=b && a!=c && a!=d && b!=c && b!=d && c!=d) break;
-    }
-    cout<<y<<endl;
+    string s,t;
+    cin >> s>>t;
+    string temp = s;
+    reverse(temp.begin(), temp.end());
+    if (t == temp)
+        cout << "YES";
+    else
+        cout << "NO";
  
     return 0;
 }

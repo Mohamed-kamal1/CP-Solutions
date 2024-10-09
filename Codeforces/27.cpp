@@ -8,9 +8,16 @@ int main()
     ios_base::sync_with_stdio(false);
     cin.tie(nullptr), cout.tie(nullptr);
  
-    string s1,s2;cin>>s1>>s2;
-    for(int i=0;i<s1.size();i++)
-        cout<<(s1[i] ^ s2[i]);
+    int n;
+    cin >> n;
+ 
+    int x = 0;
+    double sum = 0;
+    for(int i=0;i<n;i++){
+        cin>>x;
+        sum+=x;
+    }
+    cout<<setprecision(10)<<sum/n<<endl;
  
     return 0;
 }

@@ -1,86 +1,35 @@
-#define _CRT_SECURE_NO_WARNINGS
+#include<bits/stdc++.h>
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
  
-#include<cmath>
-#include<cstdio>
-#include<cstdlib>
-#include<cstring>
- 
-#include<iostream>
- 
- 
-typedef long long int ll;
-typedef unsigned long long int ull;
- 
-#define dbg printf("in\n")
-#define nl printf("\n");
-#define N 610
-#define inf 10000000
- 
+#define int long long int
+#define double double_t
+#define INF 1e18
+using namespace __gnu_pbds;
 using namespace std;
- 
-int pb, pc, ps;
-int nb, nc, ns;
-int lb, lc, ls;
-ll fb, fc, fs;
+template<typename T>
+using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
  
  
-ll price(ll x)
-{
- fb = max(x*lb - nb, (ll)0);
- fc = max(x*lc - nc, (ll)0);
- fs = max(x*ls - ns, (ll)0);
- 
- ll p = fb*pb + fc*pc + fs*ps;
- return p;
-}
- 
-int main()
-{
- freopen("in2.txt", "r", stdin);
- 
- int i, j, k;
- int n, m;
- ll r;
- string s;
- 
- cin >> s;
- 
- n = s.length();
- lb = lc = ls = 0;
- for (i = 0; i < n; i++)
- {
-  if (s[i] == 'B')lb++;
-  else if (s[i] == 'C')lc++;
-  else ls++;
- }
- 
- cin >> nb >> ns >> nc;
- cin >> pb >> ps >> pc;
- cin >> r;
- 
- //binary search
- ll high, low, mid, z, ans = 0;
- low = 0, high = r + 1000, mid = 0;
- 
- while (low <= high)
- {
-  mid = (low + high) / 2;
- 
-  z = price(mid);
-  if (z == r)
-  {
-   cout << mid << endl;
-   return 0;
-  }
- 
-  if (z > r)
-   high = mid - 1;
- 
-  else
-   low = mid + 1, ans = mid;
- }
- 
- cout << ans << endl;
- 
- return 0;
+int32_t main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    int t = 1;
+    cin >> t;
+    while (t--) {
+        int n,a,b;
+        cin >> n>>a>>b;
+        string str;
+        cin>>str;
+        int count = 0;
+        for (int i = 0; i < str.length(); ++i) {
+            if (str[i]!=str[i+1]){
+                count++;
+            }
+        }
+        int maxi = a*n + ((b>=0) ? (b*n) : (b*(count/2+1)));
+        cout<<maxi;
+        cout << "\n";
+    }
 }

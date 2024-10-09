@@ -1,39 +1,46 @@
 #include <bits/stdc++.h>
 using namespace std;
 #define ll long long
-#include<algorithm>
  
  
+const int MOD = 1000000007;
+const int MAX = 1000001;
+bool prime[MAX];
+ 
+void sieve ()
+{
+    int i,j;
+    prime[0] = prime[1] = true;
+ 
+    for (i=4; i<MAX; i+=2)
+        prime[i] = true;
+ 
+    for (i=3; i*i<=MAX; i+=2)
+        if (!prime[i])
+            for (j=i*i; j<MAX; j+=2*i)
+                prime[j] = true;
+}
  
 int main()
 {
     ios_base::sync_with_stdio(0);
     cin.tie(0), cout.tie(0);
  
-    int n, k;cin>>n>>k;
+    sieve ();
+    int t;cin>>t;
+ while (t--){
  
-    int prime[1000] = {3, 5}, count(2);
-    for (int number = 7; number <= n && k != 0; number += 2)
-    {
-        int i = 0;
-        while (i < count && number % prime[i] != 0)
-        {
-            ++i;
-        }
-        if (i == count)
-        {
-            for (int j = 1; j < count; ++j)
-            {
-                if (prime[j] + prime[j-1] + 1 == number)
-                {
-                    k -= 1;
-                    break;
-                }
-            }
-            prime[count++] = number;
-        }
-    }
-    printf(k == 0 ? "YES\n" : "NO\n");
+        ll n,r;
+        cin>>n;
+        r = sqrt(n);
+ 
+        if (!prime[r] && r*r == n)
+            cout<<"YES\n";
+        else
+            cout<<"NO\n";
+ 
+ }
+ 
  
 return 0;
 }

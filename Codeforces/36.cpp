@@ -9,22 +9,18 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0), cout.tie(0);
  
-    string s;
-    cin >> s;
-    int pointer = 0;
+    int n,t;cin>>n>>t;
+    string s;cin>>s;
  
- 
-    for (char letter : s) {
-        if (letter == "hello"[pointer])pointer++;
- 
- 
-        if (pointer == 5) {
-            cout << "YES" << endl;
-            return 0;
+    while(t--){
+        for(int i=0;i<n-1;i++){
+            if(s[i]=='B' && s[i+1]=='G'){
+                swap(s[i],s[i+1]);
+                i++;
+            }
         }
     }
-    if (pointer < 5) {
-        cout << "NO" << endl;
-    }
+    cout<<s<<endl;
+ 
     return 0;
 }

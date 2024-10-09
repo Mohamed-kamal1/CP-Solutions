@@ -5,18 +5,26 @@ using namespace std;
  
 int main()
 {
-    ios_base::sync_with_stdio(false);
-    cin.tie(nullptr), cout.tie(nullptr);
  
-    int n;cin >> n;
-    while (n--){
-        int x ; cin >> x;
-        if (x == 1){
-            cout << "HARD";
+    ios_base::sync_with_stdio(0);
+    cin.tie(0), cout.tie(0);
+ 
+    string s;
+    cin >> s;
+    int pointer = 0;
+ 
+ 
+    for (char letter : s) {
+        if (letter == "hello"[pointer])pointer++;
+ 
+ 
+        if (pointer == 5) {
+            cout << "YES" << endl;
             return 0;
         }
     }
-        cout << "EASY";
- 
+    if (pointer < 5) {
+        cout << "NO" << endl;
+    }
     return 0;
 }

@@ -9,14 +9,15 @@ int main()
     ios_base::sync_with_stdio(0);
     cin.tie(0), cout.tie(0);
  
-    string s,t;
-    cin >> s>>t;
-    string temp = s;
-    reverse(temp.begin(), temp.end());
-    if (t == temp)
-        cout << "YES";
-    else
-        cout << "NO";
+    int n;cin >> n;
+    int a, b;
+    int ans = 0, intrain = 0;
+    while(n--){
+        cin >> a >> b;
+        intrain = intrain - a + b;
+        ans = max(ans, intrain);
+    }
+    cout << ans;
  
     return 0;
 }
