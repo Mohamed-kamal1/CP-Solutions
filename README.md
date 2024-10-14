@@ -98,3 +98,22 @@
 95 | [Equalize the Array](https://codeforces.com/contest/1490/problem/F) | [GNU C++20 (64)](Codeforces/95.cpp) | `binary search` `data structures` `greedy` `math` `sortings` |
 96 | [Chat Order](https://codeforces.com/contest/637/problem/B) | [GNU C++20 (64)](Codeforces/96.cpp) | `*special` `binary search` `constructive algorithms` `data structures` `sortings` |
 97 | [Keyboard](https://codeforces.com/contest/474/problem/A) | [GNU C++20 (64)](Codeforces/97.cpp) | `implementation` |
+98 | [Boy or Girl](https://codeforces.com/contest/236/problem/A) | [GNU C++20 (64)](Codeforces/98.cpp) | `brute force` `implementation` `strings` |
+99 | [Registration System](https://codeforces.com/contest/4/problem/C) | [GNU C++20 (64)](Codeforces/99.cpp) | `data structures` `hashing` `implementation` |
+100 | [Cancel the Trains](https://codeforces.com/contest/1453/problem/A) | [GNU C++20 (64)](Codeforces/100.cpp) | `implementation` |
+101 | [Anton and Letters](https://codeforces.com/contest/443/problem/A) | [GNU C++20 (64)](Codeforces/101.cpp) | `constructive algorithms` `implementation` |
+102 | [Sum of Round Numbers](https://codeforces.com/contest/1352/problem/A) | [GNU C++20 (64)](Codeforces/102.cpp) | `implementation` `math` |
+103 | [Police Recruits](https://codeforces.com/contest/427/problem/A) | [GNU C++20 (64)](Codeforces/103.cpp) | `implementation` |
+104 | [The New Year: Meeting Friends](https://codeforces.com/contest/723/problem/A) | [GNU C++20 (64)](Codeforces/104.cpp) | `implementation` `math` `sortings` |
+105 | [YES or YES?](https://codeforces.com/contest/1703/problem/A) | [GNU C++20 (64)](Codeforces/105.cpp) | `brute force` `implementation` `strings` |
+106 | [Xenia and Ringroad](https://codeforces.com/contest/339/problem/B) | [GNU C++20 (64)](Codeforces/106.cpp) | `implementation` |
+107 | [Restoring Three Numbers](https://codeforces.com/contest/1154/problem/A) | [GNU C++20 (64)](Codeforces/107.cpp) | `math` |
+108 | [Vasya the Hipster](https://codeforces.com/contest/581/problem/A) | [GNU C++20 (64)](Codeforces/108.cpp) | `implementation` `math` |
+109 | [Buy a Shovel](https://codeforces.com/contest/732/problem/A) | [GNU C++20 (64)](Codeforces/109.cpp) | `brute force` `constructive algorithms` `implementation` `math` |
+110 | [Sum](https://codeforces.com/contest/1742/problem/A) | [GNU C++20 (64)](Codeforces/110.cpp) | `implementation` |
+111 | [Soft Drinking](https://codeforces.com/contest/151/problem/A) | [GNU C++20 (64)](Codeforces/111.cpp) | `implementation` `math` |
+112 | [New Year and Hurry](https://codeforces.com/contest/750/problem/A) | [GNU C++20 (64)](Codeforces/112.cpp) | `binary search` `brute force` `implementation` `math` |
+113 | [I_love_\%username\%](https://codeforces.com/contest/155/problem/A) | [GNU C++20 (64)](Codeforces/113.cpp) | `brute force` |
+114 | [Two Screens](https://codeforces.com/contest/2025/problem/A) | [GNU C++20 (64)](Codeforces/114.cpp) | `binary search` `greedy` `strings` `two pointers` |
+115 | [Remove Smallest](https://codeforces.com/contest/1399/problem/A) | [GNU C++20 (64)](Codeforces/115.cpp) | `greedy` `sortings` |
+116 | [Cut Ribbon](https://codeforces.com/contest/189/problem/A) | [GNU C++20 (64)](Codeforces/116.cpp) | `brute force` `dp` |
